@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++  -g   CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o  -o CS3052_P01_TuringMachines 

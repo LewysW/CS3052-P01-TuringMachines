@@ -80,7 +80,43 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/alphabet.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/alphabet.h">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/fileParser.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/fileParser.h">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
 		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/main.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.h">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.h">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tm.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tm.h">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.cpp">
+			<Option target="CS3052_P01_TuringMachines"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.h">
 			<Option target="CS3052_P01_TuringMachines"/>
 		</Unit>
 		<Unit filename="/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/CMakeLists.txt">

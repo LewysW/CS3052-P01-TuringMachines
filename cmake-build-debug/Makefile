@@ -123,6 +123,60 @@ CS3052_P01_TuringMachines/fast:
 	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/build
 .PHONY : CS3052_P01_TuringMachines/fast
 
+src/alphabet.o: src/alphabet.cpp.o
+
+.PHONY : src/alphabet.o
+
+# target to build an object file
+src/alphabet.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/alphabet.cpp.o
+.PHONY : src/alphabet.cpp.o
+
+src/alphabet.i: src/alphabet.cpp.i
+
+.PHONY : src/alphabet.i
+
+# target to preprocess a source file
+src/alphabet.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/alphabet.cpp.i
+.PHONY : src/alphabet.cpp.i
+
+src/alphabet.s: src/alphabet.cpp.s
+
+.PHONY : src/alphabet.s
+
+# target to generate assembly for a file
+src/alphabet.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/alphabet.cpp.s
+.PHONY : src/alphabet.cpp.s
+
+src/fileParser.o: src/fileParser.cpp.o
+
+.PHONY : src/fileParser.o
+
+# target to build an object file
+src/fileParser.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.o
+.PHONY : src/fileParser.cpp.o
+
+src/fileParser.i: src/fileParser.cpp.i
+
+.PHONY : src/fileParser.i
+
+# target to preprocess a source file
+src/fileParser.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.i
+.PHONY : src/fileParser.cpp.i
+
+src/fileParser.s: src/fileParser.cpp.s
+
+.PHONY : src/fileParser.s
+
+# target to generate assembly for a file
+src/fileParser.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.s
+.PHONY : src/fileParser.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -150,6 +204,114 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/state.o: src/state.cpp.o
+
+.PHONY : src/state.o
+
+# target to build an object file
+src/state.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/state.cpp.o
+.PHONY : src/state.cpp.o
+
+src/state.i: src/state.cpp.i
+
+.PHONY : src/state.i
+
+# target to preprocess a source file
+src/state.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/state.cpp.i
+.PHONY : src/state.cpp.i
+
+src/state.s: src/state.cpp.s
+
+.PHONY : src/state.s
+
+# target to generate assembly for a file
+src/state.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/state.cpp.s
+.PHONY : src/state.cpp.s
+
+src/tape.o: src/tape.cpp.o
+
+.PHONY : src/tape.o
+
+# target to build an object file
+src/tape.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.o
+.PHONY : src/tape.cpp.o
+
+src/tape.i: src/tape.cpp.i
+
+.PHONY : src/tape.i
+
+# target to preprocess a source file
+src/tape.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.i
+.PHONY : src/tape.cpp.i
+
+src/tape.s: src/tape.cpp.s
+
+.PHONY : src/tape.s
+
+# target to generate assembly for a file
+src/tape.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.s
+.PHONY : src/tape.cpp.s
+
+src/tm.o: src/tm.cpp.o
+
+.PHONY : src/tm.o
+
+# target to build an object file
+src/tm.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o
+.PHONY : src/tm.cpp.o
+
+src/tm.i: src/tm.cpp.i
+
+.PHONY : src/tm.i
+
+# target to preprocess a source file
+src/tm.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.i
+.PHONY : src/tm.cpp.i
+
+src/tm.s: src/tm.cpp.s
+
+.PHONY : src/tm.s
+
+# target to generate assembly for a file
+src/tm.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.s
+.PHONY : src/tm.cpp.s
+
+src/transition.o: src/transition.cpp.o
+
+.PHONY : src/transition.o
+
+# target to build an object file
+src/transition.cpp.o:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o
+.PHONY : src/transition.cpp.o
+
+src/transition.i: src/transition.cpp.i
+
+.PHONY : src/transition.i
+
+# target to preprocess a source file
+src/transition.cpp.i:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.i
+.PHONY : src/transition.cpp.i
+
+src/transition.s: src/transition.cpp.s
+
+.PHONY : src/transition.s
+
+# target to generate assembly for a file
+src/transition.cpp.s:
+	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.s
+.PHONY : src/transition.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +321,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CS3052_P01_TuringMachines"
+	@echo "... src/alphabet.o"
+	@echo "... src/alphabet.i"
+	@echo "... src/alphabet.s"
+	@echo "... src/fileParser.o"
+	@echo "... src/fileParser.i"
+	@echo "... src/fileParser.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/state.o"
+	@echo "... src/state.i"
+	@echo "... src/state.s"
+	@echo "... src/tape.o"
+	@echo "... src/tape.i"
+	@echo "... src/tape.s"
+	@echo "... src/tm.o"
+	@echo "... src/tm.i"
+	@echo "... src/tm.s"
+	@echo "... src/transition.o"
+	@echo "... src/transition.i"
+	@echo "... src/transition.s"
 .PHONY : help
 
 

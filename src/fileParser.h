@@ -1,0 +1,13 @@
+//
+// Created by locw on 04/03/19.
+//
+
+#ifndef CS3052_P01_TURINGMACHINES_FILEPARSER_H
+#define CS3052_P01_TURINGMACHINES_FILEPARSER_H
+
+class FileParser {
+
+};
+
+
+#endif //CS3052_P01_TURINGMACHINES_FILEPARSER_H

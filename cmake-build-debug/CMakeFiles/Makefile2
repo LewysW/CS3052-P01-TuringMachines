@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmak
 CMakeFiles/CS3052_P01_TuringMachines.dir/all:
 	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/depend
 	$(MAKE) -f CMakeFiles/CS3052_P01_TuringMachines.dir/build.make CMakeFiles/CS3052_P01_TuringMachines.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target CS3052_P01_TuringMachines"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target CS3052_P01_TuringMachines"
 .PHONY : CMakeFiles/CS3052_P01_TuringMachines.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/CS3052_P01_TuringMachines.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CS3052_P01_TuringMachines.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CS3052_P01_TuringMachines.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/CS3052_P01_TuringMachines.dir/rule

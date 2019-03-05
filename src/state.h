@@ -24,21 +24,24 @@ namespace std
     };
 }
 
+
 class State {
 private:
     string id;
     unordered_set<Transition> transitions;
 
 public:
-    explicit State(const string &id) {
-        this->setId(id);
-    }
+    State(const string &id, const unordered_set<Transition> &transitions);
 
     const string &getId() const;
 
     void setId(const string &id);
 
     const unordered_set<Transition> &getTransitions() const;
+
+    bool operator ==(const State & obj) const {
+        return (id == obj.id);
+    }
 };
 
 

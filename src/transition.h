@@ -15,10 +15,6 @@ class Transition {
 public:
     Transition(char inputSymbol, const string &nextStateID, char outputSymbol, char direction);
 
-    //Code to overload an operator:
-    // https://thispointer.com/using-stdset-with-user-defined-classes/
-    bool operator< (const Transition & transObj) const;
-
     char getInputSymbol() const;
 
     void setInputSymbol(char inputSymbol);

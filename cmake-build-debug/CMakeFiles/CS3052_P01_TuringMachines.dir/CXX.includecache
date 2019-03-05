@@ -57,6 +57,8 @@ iostream
 -
 alphabet.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/alphabet.h
+state.h
+/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.h
 
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.cpp
 transition.h

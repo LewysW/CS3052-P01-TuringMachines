@@ -17,9 +17,16 @@ void TM::run() {
     transitions.insert(t2);
     transitions.insert(t3);
 
-    if (transitions.find(t1) != transitions.end() && transitions.find(t2) == transitions.end() && transitions.find(t3) != transitions.end()) {
-        cout << "t1 and t3 added, t2 not added" << endl;
-    }
+    states.insert(State("q1", transitions));
+
+    unordered_set<Transition> transitions1;
+
+    transitions1.insert(t1);
+    states.insert(State("q1", transitions1));
+
+    cout << states.size() << endl;
+
+
     cout << "Running Turing Machine!" << endl;
 }
 
@@ -29,4 +36,36 @@ const Alphabet &TM::getAlphabet() const {
 
 void TM::setAlphabet(const Alphabet &alphabet) {
     TM::alphabet = alphabet;
+}
+
+const unordered_set<State> &TM::getStates() const {
+    return states;
+}
+
+void TM::setStates(const unordered_set<State> &states) {
+    TM::states = states;
+}
+
+const string &TM::getRejectState() const {
+    return rejectState;
+}
+
+void TM::setRejectState(const string &rejectState) {
+    TM::rejectState = rejectState;
+}
+
+const string &TM::getAcceptState() const {
+    return acceptState;
+}
+
+void TM::setAcceptState(const string &acceptState) {
+    TM::acceptState = acceptState;
+}
+
+const string &TM::getCurrentState() const {
+    return currentState;
+}
+
+void TM::setCurrentState(const string &currentState) {
+    TM::currentState = currentState;
 }

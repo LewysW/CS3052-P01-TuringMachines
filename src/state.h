@@ -11,7 +11,18 @@
 
 using namespace std;
 
-class Tranisition;
+namespace std
+{
+    template<>
+    struct hash<Transition>
+    {
+        size_t
+        operator()(const Transition & obj) const
+        {
+            return hash<string>()(obj.getInputSymbol() + obj.getNextStateID() + obj.getOutputSymbol() + obj.getDirection());
+        }
+    };
+}
 
 class State {
 private:

@@ -24,7 +24,6 @@ CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/tm.cpp
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/tm.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/transition.h
 
-CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o: ../src/state.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o: ../src/transition.cpp
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o: ../src/transition.h
 

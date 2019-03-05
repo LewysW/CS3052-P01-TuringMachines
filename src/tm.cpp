@@ -7,27 +7,12 @@
 #include "state.h"
 
 void TM::run() {
-    Transition t1('a', "q1", 'b', 'R');
-    Transition t2('a', "q1", 'b', 'R');
-    Transition t3('a', "q2", 'b', 'R');
 
-    unordered_set<Transition> transitions;
+}
 
-    transitions.insert(t1);
-    transitions.insert(t2);
-    transitions.insert(t3);
-
-    states.insert(State("q1", transitions));
-
-    unordered_set<Transition> transitions1;
-
-    transitions1.insert(t1);
-    states.insert(State("q1", transitions1));
-
-    cout << states.size() << endl;
-
-
-    cout << "Running Turing Machine!" << endl;
+void TM::delta() {
+    char currentSymbol = tape.getCells().at(head);
+    
 }
 
 const Alphabet &TM::getAlphabet() const {

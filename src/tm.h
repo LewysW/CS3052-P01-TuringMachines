@@ -8,6 +8,7 @@
 #include <iostream>
 #include "alphabet.h"
 #include "state.h"
+#include "tape.h"
 
 using namespace std;
 
@@ -32,12 +33,23 @@ public:
     void setAlphabet(const Alphabet &alphabet);
 
 private:
+    //Σ
     Alphabet alphabet;
+    //Γ
+    Tape tape;
+    //Q
     unordered_set<State> states;
+    //qr
     string rejectState;
+    //qa
     string acceptState;
+    //initially q0
     string currentState;
+    //Head
+    int head = 0;
 public:
+    void delta();
+
     const unordered_set<State> &getStates() const;
 
     void setStates(const unordered_set<State> &states);

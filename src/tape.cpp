@@ -3,3 +3,11 @@
 //
 
 #include "tape.h"
+
+const vector<char> &Tape::getCells() const {
+    return cells;
+}
+
+void Tape::setCells(const vector<char> &cells) {
+    Tape::cells = cells;
+}

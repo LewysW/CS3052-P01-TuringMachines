@@ -5,8 +5,7 @@
 #ifndef CS3052_P01_TURINGMACHINES_FILEPARSER_H
 #define CS3052_P01_TURINGMACHINES_FILEPARSER_H
 #define START_STATE 0
-#define ACCEPTING_STATE "+"
-#define REJECTING STATE "-"
+#define TRANSITION_SIZE 5
 
 #include <string>
 #include <fstream>
@@ -23,7 +22,9 @@ public:
 
     void loadTapeFile(char* path, Tape& tape);
 
-    void populateStates(ifstream& tmFile, string& currentState, string& acceptState, string& rejectState, unordered_map<string, State>& states);
+    void readStates(ifstream& tmFile, string& currentState, string& acceptState, string& rejectState, unordered_map<string, State>& states);
+    void readAlphabet(ifstream& tmFile, Alphabet& alphabet);
+    void readTransitions(ifstream& tmFile, Alphabet& alphabet, string& acceptState, string& rejectState, unordered_map<string, State>& states);
 
     vector<string> tokenizeLine(string line);
 private:

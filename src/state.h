@@ -7,6 +7,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <ruby/intern.h>
 #include "transition.h"
 
 using namespace std;
@@ -19,7 +20,9 @@ namespace std
         size_t
         operator()(const Transition & obj) const
         {
-            return hash<string>()(obj.getInputSymbol() + obj.getNextStateID() + obj.getOutputSymbol() + obj.getDirection());
+            string s;
+            s += obj.getInputSymbol();
+            return hash<string>()(s);
         }
     };
 }

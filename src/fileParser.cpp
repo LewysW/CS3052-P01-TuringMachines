@@ -18,10 +18,12 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
         exit(EXIT_FAILURE);
     }
 
-    populateStates(tmFile, currentState, acceptState, rejectState, states);
+    readStates(tmFile, currentState, acceptState, rejectState, states);
+    readAlphabet(tmFile, alphabet);
+    readTransitions(tmFile, alphabet, acceptState, rejectState, states);
 }
 
-void FileParser::populateStates(ifstream& tmFile, string& currentState, string& acceptState,
+void FileParser::readStates(ifstream& tmFile, string& currentState, string& acceptState,
                                 string& rejectState, unordered_map<string, State>& states) {
     int numStates = 0;
     string line;
@@ -51,10 +53,12 @@ void FileParser::populateStates(ifstream& tmFile, string& currentState, string& 
                     exit(EXIT_FAILURE);
                 }
 
+                //Checks If non accepting or rejecting state
                 if (tokens.size() == 1 && !(tokens[0] == "+" || tokens[0] == "-")) {
                     if (stateNum == START_STATE) {
                         currentState = tokens[0];
                     }
+                //Checks if accepting or rejecting state
                 } else if (tokens.size() == 2 && (tokens[0] != "+" && tokens[0] != "-") && (tokens[1] == "+" || tokens[1] == "-")) {
                     if (tokens[1] == "+") {
                         acceptState = tokens[0];
@@ -72,11 +76,90 @@ void FileParser::populateStates(ifstream& tmFile, string& currentState, string& 
         }
     } else {
         cout << "invalid file format - file empty. Exiting" << endl;
+        exit(EXIT_FAILURE);
     }
 
     cout << "current state: " << currentState << endl;
     cout << "accept state: " << acceptState << endl;
     cout << "reject state: " << rejectState << endl;
+}
+
+void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {
+    string line;
+    vector<string> tokens;
+
+    if (getline(tmFile, line)) {
+        tokens = tokenizeLine(line);
+
+        //If there is no 'alphabet' token, or alphabet is the only token, exit.
+        if (tokens[0] != "alphabet" || tokens.size() <= 1) {
+            cout << "invalid file format - no alphabet. Exiting" << endl;
+            exit(EXIT_FAILURE);
+        } else {
+            //Otherwise iterate over each token, ensuring the tokens are the correct length (and not '_') and add to the alphabet
+            for (int tokenNum = 1; tokenNum < tokens.size(); tokenNum++) {
+                if (tokens[tokenNum].length() == sizeof(char) && tokens[tokenNum] != "_") {
+                    alphabet.addSymbol(tokens[tokenNum][0]);
+                    cout << tokens[tokenNum][0] << endl;
+                } else {
+                    cout << "invalid file format - alphabet invalid. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
+            }
+        }
+
+    } else {
+        cout << "invalid file format - no alphabet. Exiting" << endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& acceptState,
+                                 string& rejectState, unordered_map<string, State> &states) {
+    string line;
+    vector<string> tokens;
+    int currentToken = 0;
+    string currentState;
+    char inputSymbol;
+    string nextState;
+    char outputSymbol;
+    char direction;
+
+    if (getline(tmFile, line)) {
+        tokens = tokenizeLine(line);
+
+        if (tokens.size() != TRANSITION_SIZE) {
+            cout << "invalid file - transition invalid. Exiting" << endl;
+            exit(EXIT_FAILURE);
+        } else {
+            //Checks that current state of transition is valid (in list of states and not an accept or reject state)
+            if (states.find(tokens[currentToken]) == states.end() || tokens[currentToken] == acceptState || tokens[currentToken] == rejectState) {
+                cout << "invalid file - current state in transition invalid. Exiting" << endl;
+                exit(EXIT_FAILURE);
+            } else {
+                currentState = tokens[currentToken++];
+            }
+
+            //Checks that input character is in alphabet and is the correct length
+            if (tokens[currentToken].length() != sizeof(char) && !alphabet.contains(tokens[currentToken][0])) {
+                cout << "invalid file - invalid input character to transition. Exiting" << endl;
+                exit(EXIT_FAILURE);
+            } else {
+                inputSymbol = tokens[currentToken++][0];
+            }
+
+            if (states.find(tokens[currentToken]) == states.end()) {
+                cout << "invalid file - invalid next state. Exiting" << endl;
+                exit(EXIT_FAILURE);
+            } else {
+                
+            }
+
+        }
+    } else {
+        cout << "invalid file - no transitions. Exiting" << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 //Tokenizing a string https://www.geeksforgeeks.org/tokenizing-a-string-cpp/

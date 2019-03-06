@@ -10,6 +10,7 @@ CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.o: ../src/fileParser
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/alphabet.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/state.h
+CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/tape.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/tm.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o: ../src/transition.h
 
@@ -22,6 +23,7 @@ CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.o: ../src/tape.h
 
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/alphabet.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/state.h
+CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/tape.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/tm.cpp
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/tm.h
 CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o: ../src/transition.h

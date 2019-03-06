@@ -38,7 +38,7 @@ private:
     //Γ
     Tape tape;
     //Q
-    unordered_set<State> states;
+    unordered_map<string, State> states;
     //qr
     string rejectState;
     //qa
@@ -46,13 +46,13 @@ private:
     //initially q0
     string currentState;
     //Head
-    int head = 0;
+    unsigned long long head = 0;
 public:
     void delta();
 
-    const unordered_set<State> &getStates() const;
+    const unordered_map<string, State> &getStates() const;
 
-    void setStates(const unordered_set<State> &states);
+    void setStates(const unordered_map<string, State> &states);
 
     const string &getRejectState() const;
 

@@ -33,7 +33,7 @@ state.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.h
 string
 -
-unordered_set
+unordered_map
 -
 transition.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.h
@@ -43,6 +43,8 @@ tape.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.h
 
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.h
+vector
+-
 
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tm.cpp
 tm.h
@@ -59,6 +61,8 @@ alphabet.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/alphabet.h
 state.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.h
+tape.h
+/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.h
 
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.cpp
 transition.h

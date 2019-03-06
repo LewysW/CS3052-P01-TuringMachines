@@ -7,12 +7,16 @@
 #include "state.h"
 
 void TM::run() {
+    //TODO - populate data structures using fileParser
 
+    //TODO - simulate TM using transition function delta
+    //while (currentState != acceptState && currentState != rejectState) {
+    //  delta();
+    // }
 }
 
 void TM::delta() {
     char currentSymbol = tape.getCells().at(head);
-    
 }
 
 const Alphabet &TM::getAlphabet() const {
@@ -23,11 +27,11 @@ void TM::setAlphabet(const Alphabet &alphabet) {
     TM::alphabet = alphabet;
 }
 
-const unordered_set<State> &TM::getStates() const {
+const unordered_map<string, State> &TM::getStates() const {
     return states;
 }
 
-void TM::setStates(const unordered_set<State> &states) {
+void TM::setStates(const unordered_map<string, State> &states) {
     TM::states = states;
 }
 

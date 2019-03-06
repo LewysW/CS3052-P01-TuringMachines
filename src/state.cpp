@@ -16,4 +16,8 @@ const unordered_map<char, Transition> &State::getTransitions() const {
     return transitions;
 }
 
-State::State(const string &id, const unordered_map<char, Transition> &transitions) : id(id), transitions(transitions) {}
+void State::setTransitions(const unordered_map<char, Transition> &transitions) {
+    State::transitions = transitions;
+}
+
+State::State(const string &id) : id(id) {}

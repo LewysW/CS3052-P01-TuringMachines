@@ -31,13 +31,18 @@ private:
     unordered_map<char, Transition> transitions;
 
 public:
-    State(const string &id, const unordered_map<char, Transition> &transitions);
+
+    State() = default;
+
+    explicit State(const string &id);
 
     const string &getId() const;
 
     void setId(const string &id);
 
     const unordered_map<char, Transition> &getTransitions() const;
+
+    void setTransitions(const unordered_map<char, Transition> &transitions);
 
     bool operator ==(const State & obj) const {
         return (id == obj.id);

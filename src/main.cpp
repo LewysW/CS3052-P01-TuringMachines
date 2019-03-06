@@ -10,7 +10,13 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     } else {
         TM tm;
-        tm.run();
+
+        if (argc == 2) {
+            tm.run(argv[TM_FILE_PATH], NULL);
+        } else {
+            tm.run(argv[TM_FILE_PATH], argv[TAPE_FILE_PATH]);
+        }
+
     }
     cout << "EXIT_SUCCESS!" << endl;
     return 0;

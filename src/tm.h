@@ -5,10 +5,16 @@
 #ifndef CS3052_P01_TURINGMACHINES_TM_H
 #define CS3052_P01_TURINGMACHINES_TM_H
 
+#define TM_FILE_PATH 1
+#define TAPE_FILE_PATH 2
+
 #include <iostream>
 #include "alphabet.h"
 #include "state.h"
 #include "tape.h"
+#include "transition.h"
+#include "state.h"
+#include "fileParser.h"
 
 using namespace std;
 
@@ -27,7 +33,7 @@ namespace std
 
 class TM {
 public:
-    void run();
+    void run(char* tmFilePath, char* tapeFilePath);
 
     const Alphabet &getAlphabet() const;
     void setAlphabet(const Alphabet &alphabet);

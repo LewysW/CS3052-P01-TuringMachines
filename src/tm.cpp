@@ -3,11 +3,19 @@
 //
 
 #include "tm.h"
-#include "transition.h"
-#include "state.h"
 
-void TM::run() {
+void TM::run(char* tmFilePath, char* tapeFilePath) {
     //TODO - populate data structures using fileParser
+
+    cout << "TM FILE PATH: " << tmFilePath << endl;
+
+    if (tapeFilePath != NULL) {
+        cout << "TAPE FILE PATH: " << tapeFilePath << endl;
+    }
+
+
+    //FileParser fileParser;
+    //fileParser.loadTMFile();
 
     //TODO - simulate TM using transition function delta
     //while (currentState != acceptState && currentState != rejectState) {

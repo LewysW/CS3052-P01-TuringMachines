@@ -4,12 +4,18 @@
 
 #include "fileParser.h"
 
-FileParser::FileParser(const string &tmPath) : tmPath(tmPath) {}
+void FileParser::loadTMFile(string& path, string& currentState, string& acceptState,
+                            string& rejectState, Alphabet& alphabet, unordered_map<string, State>& states) {
 
-FileParser::FileParser(const string &tmPath, const string &tapePath) : tmPath(tmPath), tapePath(tapePath) {}
+    ifstream file(path, ifstream::in);
 
-void FileParser::populateAlphabet(Alphabet alphabet) {}
+    if (ifstream.is_open()) {
+        cout << "Opened TM file for reading..." << endl;
+    } else {
+        cout << "File failed to open. Exiting" << endl;
+        exit(EXIT_FAILURE);
+    }
 
-void FileParser::populateTape(Tape tape) {}
+}
 
-void populateStates(string currentState, string acceptState, string rejectState, unordered_map<string, State> states) {}
+void FileParser::loadTapeFile(string& path, Tape& tape) {}

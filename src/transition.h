@@ -13,6 +13,8 @@ using namespace std;
 
 class Transition {
 public:
+    Transition();
+
     Transition(char inputSymbol, const string &nextStateID, char outputSymbol, char direction);
 
     char getInputSymbol() const;

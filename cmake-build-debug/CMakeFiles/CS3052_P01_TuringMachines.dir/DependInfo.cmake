@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/alphabet.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/alphabet.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/fileParser.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/main.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/state.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/state.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/tape.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/tm.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o"
-  "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/src/transition.cpp" "/home/lewys/Documents/Practicals/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/alphabet.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/alphabet.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/fileParser.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/fileParser.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/main.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/main.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/state.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tape.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/tape.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/tm.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/tm.cpp.o"
+  "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.cpp" "/cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/src/transition.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -44,6 +44,8 @@ public:
 
     unordered_map<char, Transition> &getTransitions();
 
+    void addTransition(const Transition& t);
+
     void setTransitions(const unordered_map<char, Transition> &transitions);
 
     bool operator ==(const State & obj) const {

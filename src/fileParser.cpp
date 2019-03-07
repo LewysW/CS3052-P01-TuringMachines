@@ -2,7 +2,6 @@
 // Created by locw on 04/03/19.
 //
 
-#include <sstream>
 #include "fileParser.h"
 
 void FileParser::loadTMFile(char* path, string& currentState, string& acceptState,
@@ -23,10 +22,13 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
     readTransitions(tmFile, alphabet, acceptState, rejectState, states);
 }
 
-void FileParser::loadTapeFile(char *path, Tape &tape) {
+void FileParser::loadTapeFile(char *path, Alphabet &alphabet, Tape &tape) {
     ifstream tapeFile;
+    string line;
     tapeFile.open(path);
+    vector<char> tapeCells;
 
+    //Checks that file has opened correctly
     if (tapeFile.is_open()) {
         cout << "Opened Tape file for reading..." << endl;
     } else {
@@ -34,7 +36,20 @@ void FileParser::loadTapeFile(char *path, Tape &tape) {
         exit(EXIT_FAILURE);
     }
 
-    
+    //Reads characters, adding them to tape if they are in the alphabet (or are blank, '_') and are not whitespace characters
+    char c;
+    while (tapeFile.get(c)) {
+        if (isspace(c)) continue;
+
+        if (alphabet.contains(c) || c == '_') {
+            tapeCells.push_back(c);
+        } else {
+            cout << "Invalid tape file characters. Exiting" << endl;
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    tape.setCells(tapeCells);
 }
 
 void FileParser::readStates(ifstream& tmFile, string& currentState, string& acceptState,
@@ -113,7 +128,7 @@ void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {
             exit(EXIT_FAILURE);
         } else {
             //Otherwise iterate over each token, ensuring the tokens are the correct length (and not '_') and add to the alphabet
-            for (int tokenNum = 1; tokenNum < tokens.size(); tokenNum++) {
+            for (unsigned int tokenNum = 1; tokenNum < tokens.size(); tokenNum++) {
                 if (tokens[tokenNum].length() == sizeof(char) && tokens[tokenNum] != "_") {
                     alphabet.addSymbol(tokens[tokenNum][0]);
                 } else {
@@ -191,8 +206,8 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
                 }
 
                 //Adds transition to state
-                cout << "TRANSITION - INPUT SYMBOL: " << inputSymbol << " NEXT STATE: " << nextState << " OUTPUT SYMBOL: " << outputSymbol << " DIRECTION: " << direction << endl;
-                states[currentState].getTransitions().insert(std::make_pair(inputSymbol, Transition(inputSymbol, nextState, outputSymbol, direction)));
+                Transition t(inputSymbol, nextState, outputSymbol, direction);
+                states[currentState].addTransition(t);
             }
         } while (getline(tmFile, line));
 
@@ -214,15 +229,4 @@ vector<string> FileParser::tokenizeLine(string line) {
     }
 
     return tokens;
-}
-
-void FileParser::loadTapeFile(char* path, Tape& tape) {
-    ifstream tapeFile(path, ifstream::in);
-
-    if (tapeFile.is_open()) {
-        cout << "Opened tape file for reading..." << endl;
-    } else {
-        perror("Error opening file");
-        exit(EXIT_FAILURE);
-    }
 }

@@ -36,5 +36,7 @@ void Transition::setNextStateID(const string &nextStateID) {
     Transition::nextStateID = nextStateID;
 }
 
+Transition::Transition() = default;
+
 Transition::Transition(char inputSymbol, const string &nextStateID, char outputSymbol, char direction) : inputSymbol(
         inputSymbol), nextStateID(nextStateID), outputSymbol(outputSymbol), direction(direction) {}

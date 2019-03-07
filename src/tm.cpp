@@ -5,18 +5,13 @@
 #include "tm.h"
 
 void TM::run(char* tmFilePath, char* tapeFilePath) {
-    //TODO - populate data structures using fileParser
-
-    cout << "TM FILE PATH: " << tmFilePath << endl;
-
     FileParser fileParser;
     fileParser.loadTMFile(tmFilePath, currentState, acceptState, rejectState, alphabet, states);
 
     if (tapeFilePath != NULL) {
         cout << "TAPE FILE PATH: " << tapeFilePath << endl;
-        fileParser.loadTapeFile(tapeFilePath, tape);
+        fileParser.loadTapeFile(tapeFilePath, alphabet, tape);
     }
-
 
     //TODO - simulate TM using transition function delta
     //while (currentState != acceptState && currentState != rejectState) {

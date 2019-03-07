@@ -4,6 +4,10 @@
 
 #include "state.h"
 
+void State::addTransition(const Transition& t) {
+    transitions.insert(make_pair(t.getInputSymbol(), t));
+}
+
 const string &State::getId() const {
     return id;
 }

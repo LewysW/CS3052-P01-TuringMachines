@@ -9,18 +9,33 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
     fileParser.loadTMFile(tmFilePath, currentState, acceptState, rejectState, alphabet, states);
 
     if (tapeFilePath != NULL) {
-        cout << "TAPE FILE PATH: " << tapeFilePath << endl;
         fileParser.loadTapeFile(tapeFilePath, alphabet, tape);
     }
 
     //TODO - simulate TM using transition function delta
-    //while (currentState != acceptState && currentState != rejectState) {
-    //  delta();
-    // }
+    char currentSymbol;
+    while (currentState != acceptState && currentState != rejectState) {
+        currentSymbol = tape.getCells().at(head);
+        delta(currentState, currentSymbol);
+    }
+
+    if (currentState == acceptState) {
+        cout << "accept" << endl;
+    } else if (currentState == rejectState) {
+        cout << "reject" << endl;
+    }
 }
 
-void TM::delta() {
-    char currentSymbol = tape.getCells().at(head);
+void TM::delta(string& currentState, char currentSymbol) {
+    Transition t = states[currentState].getTransitions()[currentSymbol];
+    currentState = t.getNextStateID();
+    cout << t.getOutputSymbol();
+
+    if (t.getDirection() == 'L' && head > 0) {
+        head--;
+    } else if (t.getDirection() == 'R') {
+        head++;
+    }
 }
 
 const Alphabet &TM::getAlphabet() const {

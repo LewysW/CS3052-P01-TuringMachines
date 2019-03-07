@@ -11,15 +11,13 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
     tmFile.open(path);
 
     if (tmFile.is_open()) {
-        cout << "Opened TM file for reading..." << endl;
+        readStates(tmFile, currentState, acceptState, rejectState, states);
+        readAlphabet(tmFile, alphabet);
+        readTransitions(tmFile, alphabet, acceptState, rejectState, states);
     } else {
         perror("Error opening file");
         exit(EXIT_FAILURE);
     }
-
-    readStates(tmFile, currentState, acceptState, rejectState, states);
-    readAlphabet(tmFile, alphabet);
-    readTransitions(tmFile, alphabet, acceptState, rejectState, states);
 }
 
 void FileParser::loadTapeFile(char *path, Alphabet &alphabet, Tape &tape) {
@@ -30,26 +28,24 @@ void FileParser::loadTapeFile(char *path, Alphabet &alphabet, Tape &tape) {
 
     //Checks that file has opened correctly
     if (tapeFile.is_open()) {
-        cout << "Opened Tape file for reading..." << endl;
+        //Reads characters, adding them to tape if they are in the alphabet (or are blank, '_') and are not whitespace characters
+        char c;
+        while (tapeFile.get(c)) {
+            if (isspace(c)) continue;
+
+            if (alphabet.contains(c) || c == '_') {
+                tapeCells.push_back(c);
+            } else {
+                cout << "Invalid tape file characters. Exiting" << endl;
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        tape.setCells(tapeCells);
     } else {
         perror("Error opening file");
         exit(EXIT_FAILURE);
     }
-
-    //Reads characters, adding them to tape if they are in the alphabet (or are blank, '_') and are not whitespace characters
-    char c;
-    while (tapeFile.get(c)) {
-        if (isspace(c)) continue;
-
-        if (alphabet.contains(c) || c == '_') {
-            tapeCells.push_back(c);
-        } else {
-            cout << "Invalid tape file characters. Exiting" << endl;
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    tape.setCells(tapeCells);
 }
 
 void FileParser::readStates(ifstream& tmFile, string& currentState, string& acceptState,
@@ -109,10 +105,6 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
         cout << "invalid file format - file empty. Exiting" << endl;
         exit(EXIT_FAILURE);
     }
-
-    cout << "current state: " << currentState << endl;
-    cout << "accept state: " << acceptState << endl;
-    cout << "reject state: " << rejectState << endl;
 }
 
 void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {

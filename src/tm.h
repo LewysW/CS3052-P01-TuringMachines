@@ -54,7 +54,7 @@ private:
     //Head
     unsigned long long head = 0;
 public:
-    void delta();
+    void delta(string& currentState, char currentSymbol);
 
     const unordered_map<string, State> &getStates() const;
 

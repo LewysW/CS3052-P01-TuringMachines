@@ -23,6 +23,20 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
     readTransitions(tmFile, alphabet, acceptState, rejectState, states);
 }
 
+void FileParser::loadTapeFile(char *path, Tape &tape) {
+    ifstream tapeFile;
+    tapeFile.open(path);
+
+    if (tapeFile.is_open()) {
+        cout << "Opened Tape file for reading..." << endl;
+    } else {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    
+}
+
 void FileParser::readStates(ifstream& tmFile, string& currentState, string& acceptState,
                                 string& rejectState, unordered_map<string, State>& states) {
     int numStates = 0;

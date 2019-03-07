@@ -4,7 +4,7 @@
 
 #include "tape.h"
 
-const vector<char> &Tape::getCells() const {
+vector<char> &Tape::getCells(){
     return cells;
 }
 

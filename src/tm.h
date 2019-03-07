@@ -7,6 +7,9 @@
 
 #define TM_FILE_PATH 1
 #define TAPE_FILE_PATH 2
+#define ACCEPTED 0
+#define REJECTED 1
+#define EMPTY_TAPE -1
 
 #include <iostream>
 #include "alphabet.h"
@@ -15,6 +18,7 @@
 #include "transition.h"
 #include "state.h"
 #include "fileParser.h"
+#include <stack>
 
 using namespace std;
 
@@ -55,6 +59,8 @@ private:
     unsigned long long head = 0;
 public:
     void delta(string& currentState, char currentSymbol);
+
+    void printTape(Tape& tape);
 
     const unordered_map<string, State> &getStates() const;
 

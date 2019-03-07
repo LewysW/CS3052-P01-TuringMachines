@@ -8,34 +8,79 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
     FileParser fileParser;
     fileParser.loadTMFile(tmFilePath, currentState, acceptState, rejectState, alphabet, states);
 
-    if (tapeFilePath != NULL) {
+    if (tapeFilePath != nullptr) {
         fileParser.loadTapeFile(tapeFilePath, alphabet, tape);
+    } else {
+        tape.getCells().insert(tape.getCells().begin(), '_');
     }
 
-    //TODO - simulate TM using transition function delta
+    int numSteps = -1;
     char currentSymbol;
+
     while (currentState != acceptState && currentState != rejectState) {
+        numSteps++;
         currentSymbol = tape.getCells().at(head);
         delta(currentState, currentSymbol);
     }
 
     if (currentState == acceptState) {
         cout << "accept" << endl;
+        cout << numSteps << endl;
+        printTape(tape);
+        exit(ACCEPTED);
+
     } else if (currentState == rejectState) {
         cout << "reject" << endl;
+        cout << numSteps << endl;
+        printTape(tape);
+        exit(REJECTED);
     }
 }
 
 void TM::delta(string& currentState, char currentSymbol) {
-    Transition t = states[currentState].getTransitions()[currentSymbol];
+    Transition t;
+
+    //Checks if transition exists for state and input symbol
+    if (states[currentState].getTransitions().find(currentSymbol) != states[currentState].getTransitions().end()) {
+        t = states[currentState].getTransitions()[currentSymbol];
+    //Otherwise rejecting transition implied
+    } else {
+        t = Transition(currentSymbol, rejectState, currentSymbol, 'L');
+    }
+
+    //Changes current state to next state
     currentState = t.getNextStateID();
-    cout << t.getOutputSymbol();
+
+    //Writes symbol to location of head on tape
+    tape.getCells().insert(tape.getCells().begin() + head, t.getOutputSymbol());
 
     if (t.getDirection() == 'L' && head > 0) {
         head--;
     } else if (t.getDirection() == 'R') {
         head++;
     }
+
+}
+
+void TM::printTape(Tape& tape) {
+    long tapeOutput = -1;
+
+    //Iterates from end of tape to beginning, recording characters to print
+    for (long cell = tape.getCells().size() - 1; cell >= 0; cell--) {
+        if (tape.getCells()[cell] != '_') {
+            tapeOutput = cell;
+            break;
+        }
+    }
+
+    if (tapeOutput != EMPTY_TAPE) {
+        for (long cell = 0; cell <= tapeOutput; cell++) {
+            cout << tape.getCells()[cell];
+        }
+    } else {
+        cout << '_';
+    }
+
 }
 
 const Alphabet &TM::getAlphabet() const {

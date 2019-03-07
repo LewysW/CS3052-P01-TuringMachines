@@ -11,7 +11,7 @@ using namespace std;
 
 class Tape {
 public:
-    const vector<char> &getCells() const;
+    vector<char> &getCells();
 
     void setCells(const vector<char> &cells);
 

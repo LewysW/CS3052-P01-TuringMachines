@@ -6,6 +6,7 @@
 #define CS3052_P01_TURINGMACHINES_FILEPARSER_H
 #define START_STATE 0
 #define TRANSITION_SIZE 5
+#define INPUT_ERROR 2
 
 #include <string>
 #include <fstream>

@@ -79,6 +79,8 @@ state.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/state.h
 fileParser.h
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/fileParser.h
+stack
+-
 
 /cs/home/locw/Documents/CS3052/CS3052-P01-TuringMachines/src/transition.cpp
 transition.h

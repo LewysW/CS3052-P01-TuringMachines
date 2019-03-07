@@ -9,7 +9,7 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
     fileParser.loadTMFile(tmFilePath, currentState, acceptState, rejectState, alphabet, states);
 
     if (tapeFilePath != nullptr) {
-        fileParser.loadTapeFile(tapeFilePath, alphabet, tape);
+        fileParser.loadTapeFile(tapeFilePath, tape);
     } else {
         tape.getCells().insert(tape.getCells().begin(), '_');
     }
@@ -39,7 +39,10 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
 
 void TM::delta(string& currentState, char currentSymbol) {
     Transition t;
-
+    //cout << "CURRENT SYMBOL UNDER HEAD: " << currentSymbol << endl;
+    //cout << "TAPE: ";
+    //printTape(tape);
+    //cout << endl;
     //Checks if transition exists for state and input symbol
     if (states[currentState].getTransitions().find(currentSymbol) != states[currentState].getTransitions().end()) {
         t = states[currentState].getTransitions()[currentSymbol];
@@ -48,11 +51,13 @@ void TM::delta(string& currentState, char currentSymbol) {
         t = Transition(currentSymbol, rejectState, currentSymbol, 'L');
     }
 
+    //cout << "CURRENT STATE: " << currentState << " TRANSITION - INPUT SYMBOL: " << t.getInputSymbol() << " NEXT STATE: " << t.getNextStateID() << " OUTPUT SYMBOL: " << t.getOutputSymbol() << " DIRECTION: " << t.getDirection() << endl;
+
     //Changes current state to next state
     currentState = t.getNextStateID();
 
     //Writes symbol to location of head on tape
-    tape.getCells().insert(tape.getCells().begin() + head, t.getOutputSymbol());
+    tape.getCells()[head] = t.getOutputSymbol();
 
     if (t.getDirection() == 'L' && head > 0) {
         head--;
@@ -81,6 +86,7 @@ void TM::printTape(Tape& tape) {
         cout << '_';
     }
 
+    cout << endl;
 }
 
 const Alphabet &TM::getAlphabet() const {

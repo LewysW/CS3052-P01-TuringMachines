@@ -20,7 +20,7 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
     }
 }
 
-void FileParser::loadTapeFile(char *path, Alphabet &alphabet, Tape &tape) {
+void FileParser::loadTapeFile(char *path, Tape &tape) {
     ifstream tapeFile;
     string line;
     tapeFile.open(path);
@@ -33,7 +33,7 @@ void FileParser::loadTapeFile(char *path, Alphabet &alphabet, Tape &tape) {
         while (tapeFile.get(c)) {
             if (isspace(c)) continue;
 
-            if (alphabet.contains(c) || c == '_') {
+            if (c != '_') {
                 tapeCells.push_back(c);
             } else {
                 cout << "input error" << endl;
@@ -116,7 +116,6 @@ void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {
 
         //If there is no 'alphabet' token, or alphabet is the only token, exit.
         if (tokens[0] != "alphabet" || tokens.size() <= 1) {
-            cout << "input error" << endl;
             exit(INPUT_ERROR);
         } else {
             //Otherwise iterate over each token, ensuring the tokens are the correct length (and not '_') and add to the alphabet
@@ -154,6 +153,9 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
             currentToken = 0;
 
             if (tokens.size() != TRANSITION_SIZE) {
+                if (tokens.empty()) break;
+
+                cout << tokens.size() << endl;
                 cout << "input error" << endl;
                 exit(INPUT_ERROR);
             } else {
@@ -191,7 +193,7 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
                 }
 
                 if ((tokens[currentToken]).length() == sizeof(char) && (tokens[currentToken] == "L"|| tokens[currentToken] == "R")) {
-                    direction = tokens[currentToken++][0];
+                    direction = tokens[currentToken][0];
                 } else {
                     cout << "input error" << endl;
                     exit(INPUT_ERROR);

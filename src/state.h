@@ -7,7 +7,6 @@
 
 #include <string>
 #include <unordered_map>
-#include <ruby/intern.h>
 #include "transition.h"
 
 using namespace std;
@@ -43,7 +42,7 @@ public:
 
     void setId(const string &id);
 
-    const unordered_map<char, Transition> &getTransitions() const;
+    unordered_map<char, Transition> &getTransitions();
 
     void setTransitions(const unordered_map<char, Transition> &transitions);
 

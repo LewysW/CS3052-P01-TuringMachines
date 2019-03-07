@@ -12,7 +12,7 @@ void State::setId(const string &id) {
     State::id = id;
 }
 
-const unordered_map<char, Transition> &State::getTransitions() const {
+unordered_map<char, Transition> &State::getTransitions() {
     return transitions;
 }
 

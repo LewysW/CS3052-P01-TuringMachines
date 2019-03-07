@@ -72,6 +72,8 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
 
                 //Creates new state with transitions initially NULL
                 states[tokens[0]] = State(tokens[0]);
+                unordered_map<char, Transition> transitions;
+                states[tokens[0]].setTransitions(transitions);
             }
         }
     } else {
@@ -100,7 +102,6 @@ void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {
             for (int tokenNum = 1; tokenNum < tokens.size(); tokenNum++) {
                 if (tokens[tokenNum].length() == sizeof(char) && tokens[tokenNum] != "_") {
                     alphabet.addSymbol(tokens[tokenNum][0]);
-                    cout << tokens[tokenNum][0] << endl;
                 } else {
                     cout << "invalid file format - alphabet invalid. Exiting" << endl;
                     exit(EXIT_FAILURE);
@@ -118,7 +119,7 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
                                  string& rejectState, unordered_map<string, State> &states) {
     string line;
     vector<string> tokens;
-    int currentToken = 0;
+    int currentToken;
     string currentState;
     char inputSymbol;
     string nextState;
@@ -126,36 +127,62 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
     char direction;
 
     if (getline(tmFile, line)) {
-        tokens = tokenizeLine(line);
+        //Loops while there are additional transition lines
+        do {
+            tokens = tokenizeLine(line);
+            currentToken = 0;
 
-        if (tokens.size() != TRANSITION_SIZE) {
-            cout << "invalid file - transition invalid. Exiting" << endl;
-            exit(EXIT_FAILURE);
-        } else {
-            //Checks that current state of transition is valid (in list of states and not an accept or reject state)
-            if (states.find(tokens[currentToken]) == states.end() || tokens[currentToken] == acceptState || tokens[currentToken] == rejectState) {
-                cout << "invalid file - current state in transition invalid. Exiting" << endl;
+            if (tokens.size() != TRANSITION_SIZE) {
+                cout << "invalid file - transition invalid. Exiting" << endl;
                 exit(EXIT_FAILURE);
             } else {
-                currentState = tokens[currentToken++];
-            }
+                //Checks that current state of transition is valid (in list of states and not an accept or reject state)
+                if (states.find(tokens[currentToken]) != states.end() && !(tokens[currentToken] == acceptState ||
+                    tokens[currentToken] == rejectState)) {
+                    currentState = tokens[currentToken++];
+                } else {
+                    cout << "invalid file - current state " << tokens[currentToken] << "in transition invalid. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
 
-            //Checks that input character is in alphabet and is the correct length
-            if (tokens[currentToken].length() != sizeof(char) && !alphabet.contains(tokens[currentToken][0])) {
-                cout << "invalid file - invalid input character to transition. Exiting" << endl;
-                exit(EXIT_FAILURE);
-            } else {
-                inputSymbol = tokens[currentToken++][0];
-            }
+                //Ensures that input character is in alphabet and is the correct length (or is '_')
+                if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
+                    inputSymbol = tokens[currentToken++][0];
+                } else {
+                    cout << "invalid file - invalid input character " << tokens[currentToken] << " to transition. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
 
-            if (states.find(tokens[currentToken]) == states.end()) {
-                cout << "invalid file - invalid next state. Exiting" << endl;
-                exit(EXIT_FAILURE);
-            } else {
-                
-            }
+                //Validates next state of transition
+                if (states.find(tokens[currentToken]) != states.end()) {
+                    nextState = tokens[currentToken++];
+                } else {
+                    cout << "invalid file - invalid next state. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
 
-        }
+                //Ensures that output character is in alphabet and is the correct length (or is '_')
+                if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
+                    outputSymbol = tokens[currentToken++][0];
+                } else {
+                    cout << "invalid file - invalid output character " << tokens[currentToken] << " to transition. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
+
+                if ((tokens[currentToken]).length() == sizeof(char) && (tokens[currentToken] == "L"|| tokens[currentToken] == "R")) {
+                    direction = tokens[currentToken++][0];
+                } else {
+                    cout << "invalid file - direction is not L or R. Exiting" << endl;
+                    exit(EXIT_FAILURE);
+                }
+
+                //Adds transition to state
+                cout << "TRANSITION - INPUT SYMBOL: " << inputSymbol << " NEXT STATE: " << nextState << " OUTPUT SYMBOL: " << outputSymbol << " DIRECTION: " << direction << endl;
+                states[currentState].getTransitions().insert(std::make_pair(inputSymbol, Transition(inputSymbol, nextState, outputSymbol, direction)));
+            }
+        } while (getline(tmFile, line));
+
+
     } else {
         cout << "invalid file - no transitions. Exiting" << endl;
         exit(EXIT_FAILURE);

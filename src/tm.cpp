@@ -9,7 +9,7 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
     fileParser.loadTMFile(tmFilePath, currentState, acceptState, rejectState, alphabet, states);
 
     if (tapeFilePath != nullptr) {
-        fileParser.loadTapeFile(tapeFilePath, tape);
+        fileParser.loadTapeFile(tapeFilePath, alphabet, tape);
     } else {
         tape.getCells().insert(tape.getCells().begin(), '_');
     }
@@ -19,18 +19,23 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
 
     while (currentState != acceptState && currentState != rejectState) {
         numSteps++;
+
+        if (head == tape.getCells().size()) {
+            tape.getCells().push_back('_');
+        }
+
         currentSymbol = tape.getCells().at(head);
         delta(currentState, currentSymbol);
     }
 
     if (currentState == acceptState) {
-        cout << "accept" << endl;
+        cout << "accepted" << endl;
         cout << numSteps << endl;
         printTape(tape);
         exit(ACCEPTED);
 
     } else if (currentState == rejectState) {
-        cout << "reject" << endl;
+        cout << "not accepted" << endl;
         cout << numSteps << endl;
         printTape(tape);
         exit(REJECTED);

@@ -7,6 +7,10 @@
 #define START_STATE 0
 #define TRANSITION_SIZE 5
 #define INPUT_ERROR 2
+#define HEADER_SIZE 2
+#define MINIMUM_STATE_NUM 2
+#define FIRST_CHARACTER 2
+#define CANNOT_OPEN_FILE 3
 
 #include <string>
 #include <fstream>
@@ -23,11 +27,13 @@ public:
     void loadTMFile(char* path, string& currentState, string& acceptState,
                     string& rejectState, Alphabet& alphabet, unordered_map<string, State>& states);
 
-    void loadTapeFile(char* path, Tape& tape);
+    void loadTapeFile(char* path, Alphabet& alphabet, Tape& tape);
 
     void readStates(ifstream& tmFile, string& currentState, string& acceptState, string& rejectState, unordered_map<string, State>& states);
     void readAlphabet(ifstream& tmFile, Alphabet& alphabet);
     void readTransitions(ifstream& tmFile, Alphabet& alphabet, string& acceptState, string& rejectState, unordered_map<string, State>& states);
+
+    bool is_number(const std::string &s);
 
     vector<string> tokenizeLine(string line);
 private:

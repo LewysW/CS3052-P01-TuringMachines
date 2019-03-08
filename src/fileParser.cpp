@@ -2,6 +2,7 @@
 // Created by locw on 04/03/19.
 //
 
+#include <algorithm>
 #include "fileParser.h"
 
 void FileParser::loadTMFile(char* path, string& currentState, string& acceptState,
@@ -16,11 +17,11 @@ void FileParser::loadTMFile(char* path, string& currentState, string& acceptStat
         readTransitions(tmFile, alphabet, acceptState, rejectState, states);
     } else {
         perror("Error opening file");
-        exit(INPUT_ERROR);
+        exit(CANNOT_OPEN_FILE);
     }
 }
 
-void FileParser::loadTapeFile(char *path, Tape &tape) {
+void FileParser::loadTapeFile(char *path, Alphabet& alphabet, Tape &tape) {
     ifstream tapeFile;
     string line;
     tapeFile.open(path);
@@ -33,18 +34,20 @@ void FileParser::loadTapeFile(char *path, Tape &tape) {
         while (tapeFile.get(c)) {
             if (isspace(c)) continue;
 
-            if (c != '_') {
+            if ((c != '_' && alphabet.contains(c))) {
+                tapeCells.push_back(c);
+            } else if (c == '_') {
                 tapeCells.push_back(c);
             } else {
-                cout << "input error" << endl;
+                printf("%s", "input error");
                 exit(INPUT_ERROR);
             }
         }
 
         tape.setCells(tapeCells);
     } else {
-        perror("Error opening file");
-        exit(INPUT_ERROR);
+        perror("Cannot open tape");
+        exit(CANNOT_OPEN_FILE);
     }
 }
 
@@ -58,13 +61,20 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
     if (getline(tmFile, line)) {
         tokens = tokenizeLine(line);
 
-        //Checks that first line is valid
-        if (tokens.at(0) != "states" || (numStates = stoi(tokens.at(1))) <= 0) {
-            cout << "input error" << endl;
+        //Checks that first line starts with the word "states", and has a valid state number >= 0
+        if (tokens.at(0) != "states" || tokens.size() < HEADER_SIZE
+            || !is_number(tokens[1]) || (numStates = stoi(tokens[1])) <= 0) {
+            printf("%s", "input error");
             exit(INPUT_ERROR);
         }
 
         numStates = stoi(tokens[1]);
+
+        //Every TM must have at least one accept and one reject state
+        if (numStates < MINIMUM_STATE_NUM) {
+            printf("%s", "input error");
+            exit(INPUT_ERROR);
+        }
 
         //Iterates over and parses each state
         for (int stateNum = 0; stateNum < numStates; stateNum++) {
@@ -74,7 +84,7 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
 
                 //Ensures that current parsed state has not already been added
                 if (!(states.find(tokens[0]) == states.end())) {
-                    cout << "input error" << endl;
+                    printf("%s", "input error");
                     exit(INPUT_ERROR);
                 }
 
@@ -91,7 +101,7 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
                         rejectState = tokens[0];
                     }
                 } else {
-                    cout << "input error" << endl;
+                    printf("%s", "input error");
                     exit(INPUT_ERROR);
                 }
 
@@ -102,7 +112,7 @@ void FileParser::readStates(ifstream& tmFile, string& currentState, string& acce
             }
         }
     } else {
-        cout << "input error" << endl;
+        printf("%s", "input error");
         exit(INPUT_ERROR);
     }
 }
@@ -113,26 +123,32 @@ void FileParser::readAlphabet(ifstream& tmFile, Alphabet &alphabet) {
 
     if (getline(tmFile, line)) {
         tokens = tokenizeLine(line);
-
-        //If there is no 'alphabet' token, or alphabet is the only token, exit.
-        if (tokens[0] != "alphabet" || tokens.size() <= 1) {
+        //If there is no 'alphabet' token, or alphabet is the only token, or alphabet is wrong size, exit.
+        if (tokens.size() <= HEADER_SIZE || tokens[0] != "alphabet"
+            || !is_number(tokens[1]) || (unsigned int) stoi(tokens[1]) != (tokens.size() - HEADER_SIZE)) {
+            printf("%s", "input error");
             exit(INPUT_ERROR);
         } else {
             //Otherwise iterate over each token, ensuring the tokens are the correct length (and not '_') and add to the alphabet
-            for (unsigned long tokenNum = 1; tokenNum < tokens.size(); tokenNum++) {
+            for (unsigned long tokenNum = FIRST_CHARACTER; tokenNum < tokens.size(); tokenNum++) {
                 if (tokens[tokenNum].length() == sizeof(char) && tokens[tokenNum] != "_") {
                     alphabet.addSymbol(tokens[tokenNum][0]);
                 } else {
-                    cout << "input error" << endl;
+                    printf("%s", "input error");
                     exit(INPUT_ERROR);
                 }
             }
         }
 
     } else {
-        cout << "input error" << endl;
+        printf("%s", "input error");
         exit(INPUT_ERROR);
     }
+}
+
+//https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
+bool FileParser::is_number(const std::string &s) {
+    return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
 }
 
 void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& acceptState,
@@ -146,69 +162,68 @@ void FileParser::readTransitions(ifstream &tmFile, Alphabet& alphabet, string& a
     char outputSymbol;
     char direction;
 
-    if (getline(tmFile, line)) {
-        //Loops while there are additional transition lines
-        do {
-            tokens = tokenizeLine(line);
-            currentToken = 0;
+    //Loops while there are transitions to process
+    while (getline(tmFile, line)) {
+        tokens = tokenizeLine(line);
+        currentToken = 0;
 
-            if (tokens.size() != TRANSITION_SIZE) {
-                if (tokens.empty()) break;
+        if (tokens.size() != TRANSITION_SIZE) {
+            if (tokens.empty()) break;
 
-                cout << tokens.size() << endl;
-                cout << "input error" << endl;
-                exit(INPUT_ERROR);
+            printf("%s", "input error");
+            exit(INPUT_ERROR);
+        } else {
+            //Checks that current state of transition is valid (in list of states and not an accept or reject state)
+            if (states.find(tokens[currentToken]) != states.end() && !(tokens[currentToken] == acceptState ||
+                tokens[currentToken] == rejectState)) {
+                currentState = tokens[currentToken++];
             } else {
-                //Checks that current state of transition is valid (in list of states and not an accept or reject state)
-                if (states.find(tokens[currentToken]) != states.end() && !(tokens[currentToken] == acceptState ||
-                    tokens[currentToken] == rejectState)) {
-                    currentState = tokens[currentToken++];
-                } else {
-                    cout << "input error" << endl;
-                    exit(INPUT_ERROR);
-                }
-
-                //Ensures that input character is in alphabet and is the correct length (or is '_')
-                if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
-                    inputSymbol = tokens[currentToken++][0];
-                } else {
-                    cout << "input error" << endl;
-                    exit(INPUT_ERROR);
-                }
-
-                //Validates next state of transition
-                if (states.find(tokens[currentToken]) != states.end()) {
-                    nextState = tokens[currentToken++];
-                } else {
-                    cout << "input error" << endl;
-                    exit(INPUT_ERROR);
-                }
-
-                //Ensures that output character is in alphabet and is the correct length (or is '_')
-                if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
-                    outputSymbol = tokens[currentToken++][0];
-                } else {
-                    cout << "invalid file - invalid output character " << tokens[currentToken] << " to transition. Exiting" << endl;
-                    exit(INPUT_ERROR);
-                }
-
-                if ((tokens[currentToken]).length() == sizeof(char) && (tokens[currentToken] == "L"|| tokens[currentToken] == "R")) {
-                    direction = tokens[currentToken][0];
-                } else {
-                    cout << "input error" << endl;
-                    exit(INPUT_ERROR);
-                }
-
-                //Adds transition to state
-                Transition t(inputSymbol, nextState, outputSymbol, direction);
-                states[currentState].addTransition(t);
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
             }
-        } while (getline(tmFile, line));
 
+            //Ensures that input character is in alphabet and is the correct length (or is '_')
+            if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
+                inputSymbol = tokens[currentToken++][0];
+            } else {
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
+            }
 
-    } else {
-        cout << "input error" << endl;
-        exit(INPUT_ERROR);
+            //Validates next state of transition
+            if (states.find(tokens[currentToken]) != states.end()) {
+                nextState = tokens[currentToken++];
+            } else {
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
+            }
+
+            //Ensures that output character is in alphabet and is the correct length (or is '_')
+            if ((tokens[currentToken].length() == sizeof(char) && alphabet.contains(tokens[currentToken][0])) || (tokens[currentToken] == "_")) {
+                outputSymbol = tokens[currentToken++][0];
+            } else {
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
+            }
+
+            if ((tokens[currentToken]).length() == sizeof(char) && (tokens[currentToken] == "L"|| tokens[currentToken] == "R")) {
+                direction = tokens[currentToken][0];
+            } else {
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
+            }
+
+            //Adds transition to state
+            Transition t(inputSymbol, nextState, outputSymbol, direction);
+
+            //Checks that the transition is not a duplicate
+            if (states[currentState].getTransitions().find(inputSymbol) == states[currentState].getTransitions().end()) {
+                states[currentState].addTransition(t);
+            } else {
+                printf("%s", "input error");
+                exit(INPUT_ERROR);
+            }
+        }
     }
 }
 
@@ -219,8 +234,13 @@ vector<string> FileParser::tokenizeLine(string line) {
     string intermediate;
 
     while (getline(checkStream, intermediate, ' ')) {
-        tokens.push_back(intermediate);
+        //https://stackoverflow.com/questions/6444842/efficient-way-to-check-if-stdstring-has-only-spaces
+        if (intermediate.find_first_not_of(' ') != std::string::npos) {
+            tokens.push_back(intermediate);
+        }
     }
 
     return tokens;
 }
+
+

@@ -13,24 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e27b5b20-df7e-4ab2-bba1-15d5699d0261" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS3052_P01_TuringMachines.dir/CXX.includecache" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CS3052_P01_TuringMachines" afterPath="$PROJECT_DIR$/cmake-build-debug/CS3052_P01_TuringMachines" />
-      <change beforePath="$PROJECT_DIR$/src/.nfs000000000006051c00000240" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SimpleTM/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/SimpleTM/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SimpleTM/test-notape.sh" afterPath="$PROJECT_DIR$/src/Tests/SimpleTM/test-notape.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SyntaxErrors/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/SyntaxErrors/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SyntaxErrors/test-notm.sh" afterPath="$PROJECT_DIR$/src/Tests/SyntaxErrors/test-notm.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestBinAdd/metatest-ref.sh" afterPath="$PROJECT_DIR$/src/Tests/TestBinAdd/metatest-ref.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestBinAdd/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/TestBinAdd/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestNonDet/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/TestNonDet/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestParen/metatest-ref.sh" afterPath="$PROJECT_DIR$/src/Tests/TestParen/metatest-ref.sh" />
       <change beforePath="$PROJECT_DIR$/src/Tests/TestParen/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/TestParen/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestRepeat/metatest-ref.sh" afterPath="$PROJECT_DIR$/src/Tests/TestRepeat/metatest-ref.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestRepeat/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/TestRepeat/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/TestTMs/metatest.sh" afterPath="$PROJECT_DIR$/src/Tests/TestTMs/metatest.sh" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/reftm" afterPath="$PROJECT_DIR$/src/Tests/reftm" />
-      <change beforePath="$PROJECT_DIR$/src/fileParser.cpp" afterPath="$PROJECT_DIR$/src/fileParser.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/fileParser.h" afterPath="$PROJECT_DIR$/src/fileParser.h" />
       <change beforePath="$PROJECT_DIR$/src/runtm" afterPath="$PROJECT_DIR$/src/runtm" />
       <change beforePath="$PROJECT_DIR$/src/tm.cpp" afterPath="$PROJECT_DIR$/src/tm.cpp" />
     </list>
@@ -49,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/src/fileParser.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="e#307#324#0" expanded="true" />
               </folding>
@@ -57,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fileParser.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fileParser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fileParser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="2232">
               <caret line="124" column="36" lean-forward="false" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
               <folding>
                 <element signature="e#39#59#0" expanded="true" />
@@ -92,8 +76,18 @@
       <file leaf-file-name="tm.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tm.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="396">
+              <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paren.tm" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/paren.tm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -134,7 +128,7 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="126">
               <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
@@ -186,8 +180,9 @@
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/tm.h" />
         <option value="$PROJECT_DIR$/src/fileParser.h" />
-        <option value="$PROJECT_DIR$/src/tm.cpp" />
         <option value="$PROJECT_DIR$/src/fileParser.cpp" />
+        <option value="$PROJECT_DIR$/src/paren.tm" />
+        <option value="$PROJECT_DIR$/src/tm.cpp" />
       </list>
     </option>
   </component>
@@ -272,7 +267,7 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS3052_P01_TuringMachines" RUN_TARGET_NAME="CS3052_P01_TuringMachines" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="CS3052_P01_TuringMachines" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="Test/statenames3.tm Test/does-not-exist.tape" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS3052_P01_TuringMachines" TARGET_NAME="CS3052_P01_TuringMachines" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS3052_P01_TuringMachines" RUN_TARGET_NAME="CS3052_P01_TuringMachines">
+    <configuration name="CS3052_P01_TuringMachines" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="Test/paren.tm Test/complex1.tape" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS3052_P01_TuringMachines" TARGET_NAME="CS3052_P01_TuringMachines" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS3052_P01_TuringMachines" RUN_TARGET_NAME="CS3052_P01_TuringMachines">
       <envs />
     </configuration>
     <list size="2">
@@ -308,11 +303,12 @@
       <workItem from="1551959604854" duration="14932000" />
       <workItem from="1551993473533" duration="1227000" />
       <workItem from="1552043393534" duration="13264000" />
+      <workItem from="1552253202502" duration="2934000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74287000" />
+    <option name="totallyTimeSpent" value="77221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="148" width="1920" height="1020" extended-state="6" />
@@ -322,9 +318,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32964602" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -334,6 +329,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -371,6 +367,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fileParser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2232">
+          <caret line="124" column="36" lean-forward="false" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
+          <folding>
+            <element signature="e#39#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/fileParser.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -427,7 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -453,7 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -505,7 +517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -531,7 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -573,7 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,9 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding>
-            <element signature="e#135#152#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,7 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-88">
           <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <element signature="e#135#152#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -664,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="126">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding />
         </state>
@@ -718,18 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tape.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fileParser.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="e#307#324#0" expanded="true" />
           </folding>
@@ -744,21 +734,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tm.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fileParser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="2232">
           <caret line="124" column="36" lean-forward="false" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
           <folding>
             <element signature="e#39#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tape.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paren.tm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

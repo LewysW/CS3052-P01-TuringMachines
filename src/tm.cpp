@@ -44,10 +44,10 @@ void TM::run(char* tmFilePath, char* tapeFilePath) {
 
 void TM::delta(string& currentState, char currentSymbol) {
     Transition t;
-    cout << "CURRENT SYMBOL UNDER HEAD: " << currentSymbol << endl;
-    cout << "TAPE: ";
-    printTape(tape);
-    cout << endl;
+    //cout << "CURRENT SYMBOL UNDER HEAD: " << currentSymbol << endl;
+    //cout << "TAPE: ";
+    //printTape(tape);
+    //cout << endl;
     //Checks if transition exists for state and input symbol
     if (states[currentState].getTransitions().find(currentSymbol) != states[currentState].getTransitions().end()) {
         t = states[currentState].getTransitions()[currentSymbol];
@@ -56,7 +56,7 @@ void TM::delta(string& currentState, char currentSymbol) {
         t = Transition(currentSymbol, rejectState, currentSymbol, 'L');
     }
 
-    cout << "CURRENT STATE: " << currentState << " TRANSITION - INPUT SYMBOL: " << t.getInputSymbol() << " NEXT STATE: " << t.getNextStateID() << " OUTPUT SYMBOL: " << t.getOutputSymbol() << " DIRECTION: " << t.getDirection() << endl;
+    //cout << "CURRENT STATE: " << currentState << " TRANSITION - INPUT SYMBOL: " << t.getInputSymbol() << " NEXT STATE: " << t.getNextStateID() << " OUTPUT SYMBOL: " << t.getOutputSymbol() << " DIRECTION: " << t.getDirection() << endl;
 
     //Changes current state to next state
     currentState = t.getNextStateID();

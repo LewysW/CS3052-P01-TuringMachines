@@ -21,5 +21,4 @@ q2 / q1 / R
 q2 ( q1 * L
 q2 _ q3 _ L
 q3 * q3 * L
-q3 ( qa * L
 q3 $ qa $ L

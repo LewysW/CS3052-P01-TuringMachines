@@ -1,4 +1,4 @@
-states 33
+states 34
 q1
 q2
 q3
@@ -30,6 +30,7 @@ q28
 q29
 q30
 q31
+q32
 qa +
 qr -
 alphabet 4 1 0 # x
@@ -38,7 +39,7 @@ q1 1 q4 x R
 q1 # q3 # R
 q2 0 q2 0 R 
 q2 1 q2 1 R
-q2 # q2 # R
+q2 # q6 # R
 q3 0 q7 x R
 q3 # q5 # R
 q3 1 q8 x R
@@ -48,9 +49,11 @@ q4 1 q4 1 R
 q4 # q13 # R
 q5 x q5 x R
 q5 _ qa _ L
+q5 0 qa 0 R
 q6 x q6 x R
 q6 0 q7 x R
 q6 1 q8 x R
+q6 # q9 # R
 q7 0 q7 0 R
 q7 1 q7 1 R
 q7 # q9 # R
@@ -59,6 +62,7 @@ q8 1 q8 1 R
 q8 # q14 # R
 q9 x q9 x R
 q9 0 q10 x L
+q9 _ qa _ L
 q10 0 q10 0 L
 q10 1 q10 1 L
 q10 x q10 x L
@@ -73,6 +77,7 @@ q12 x q1 x R
 q12 # q3 # R
 q13 x q13 x R
 q13 0 q8 x R
+q13 # q14 # R
 q13 1 q15 x R
 q14 x q14 x R
 q14 1 q10 x L
@@ -125,3 +130,4 @@ q30 1 q30 1 R
 q30 # q31 # R
 q31 x q31 x R
 q31 1 q17 x L
+

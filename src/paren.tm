@@ -1,10 +1,8 @@
-states 8
+states 6
 q0
 q1
 q2
 q3
-q4
-q5
 qa +
 qr -
 alphabet 5 ( ) $ * /

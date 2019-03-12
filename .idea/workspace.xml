@@ -12,8 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e27b5b20-df7e-4ab2-bba1-15d5699d0261" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Task 2 - Additional TMs/bitshift.tm" afterPath="$PROJECT_DIR$/Task 2 - Additional TMs/bitshift.tm" />
-      <change beforePath="$PROJECT_DIR$/src/runtm" afterPath="$PROJECT_DIR$/src/runtm" />
+      <change beforePath="$PROJECT_DIR$/Task 2 - Additional TMs/alpha.tape" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Task 2 - Additional TMs/bitshift.tape" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/tm.cpp" afterPath="$PROJECT_DIR$/src/tm.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -74,8 +74,8 @@
       <file leaf-file-name="tm.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tm.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+            <state relative-caret-position="558">
+              <caret line="58" column="6" lean-forward="false" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -304,12 +304,12 @@
       <workItem from="1552043393534" duration="13264000" />
       <workItem from="1552253202502" duration="5895000" />
       <workItem from="1552309939820" duration="3104000" />
-      <workItem from="1552385545715" duration="1444000" />
+      <workItem from="1552385545715" duration="2050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84730000" />
+    <option name="totallyTimeSpent" value="85336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="148" width="1920" height="1020" extended-state="6" />
@@ -768,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tm.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        <state relative-caret-position="558">
+          <caret line="58" column="6" lean-forward="false" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
           <folding />
         </state>
       </provider>
